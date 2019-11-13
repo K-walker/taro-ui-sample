@@ -36,12 +36,19 @@ const config = {
     module: {
       postcss: {
         autoprefixer: {
-          enable: true
+					enable: true
+				},
+				cssModules: {
+          enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
+          config: {
+            namingPattern: 'module', // 转换模式，取值为 global/module
+            generateScopedName: '[name]__[local]___[hash:base64:5]',
+          },
         },
-        url: {
-          enable: true,
-          limit: 10240
-        }
+				url: {
+					enable: true,
+					limit: 10240
+				},
       }
     }
   },
@@ -51,8 +58,18 @@ const config = {
     module: {
       postcss: {
         autoprefixer: {
-          enable: true
-        }
+					enable: true,
+					config: {
+            browsers: ['last 3 versions', 'Android >= 4.1', 'ios >= 8'],
+          },
+				},
+				cssModules: {
+          enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
+          config: {
+            namingPattern: 'module', // 转换模式，取值为 global/module
+            generateScopedName: '[name]__[local]___[hash:base64:5]',
+          },
+        },
       }
     }
   }
@@ -75,6 +92,7 @@ if (process.env.TARO_BUILD_TYPE === 'ui') {
         library: 'taro-ui-sample'
       },
       externals: {
+        lodash: 'commonjs2 lodash',
         nervjs: 'commonjs2 nervjs',
         classnames: 'commonjs2 classnames',
         '@tarojs/components': 'commonjs2 @tarojs/components',

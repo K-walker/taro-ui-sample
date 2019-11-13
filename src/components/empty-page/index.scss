@@ -1,0 +1,10 @@
+.tui-empty-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top:1.70667rem;
+    &__message {
+        color: #ccc;
+        font-size: 0.59733rem;
+    }
+}

@@ -1,8 +1,10 @@
-import Taro, { Component, Config } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import './index.scss'
+import './index.scss';
 
-import Timer from '../../components/timer/timer'
+import { Text, View } from '@tarojs/components';
+import Taro, { Component, Config } from '@tarojs/taro';
+
+import EmptyPage from '../../components/empty-page';
+import Price from '../../components/price';
 
 export default class Index extends Component {
 
@@ -17,36 +19,12 @@ export default class Index extends Component {
     navigationBarTitleText: '首页'
   }
 
-  state = {
-    startTime: new Date().getTime(),
-    endTime: new Date().getTime() + 20000
-  }
-
-  componentWillMount () { }
-
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  tickHandler (time) {
-    console.log(time)
-  }
-
-  timeupHandler () {
-    console.log('timeup')
-  }
-
   render () {
-    const { startTime, endTime } = this.state
 
     return (
       <View className='index'>
-        <Text>Hello world!</Text>
-        <Timer startTime={startTime} endTime={endTime} onTick={this.tickHandler} onTimeup={this.timeupHandler} />
+        <EmptyPage />
+        <Price price={1000} />
       </View>
     )
   }
